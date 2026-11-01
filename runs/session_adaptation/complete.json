@@ -1,0 +1,41 @@
+{
+  "protocol_sha256": "55c8d1c72276911c83aea2a2ef2db6f36e375390feddfaea3c63ad1e58d63dc6",
+  "selection_sha256": "e37994e8cca78a6892a68b6010bac8e7778fe25621ddc6e1dae1434ac6d7def0",
+  "prediction_sha256": "acc8943520901ba8f7f251bfff7a173a5b388a46fdd3c24d12007f473b310cec",
+  "receipt_sha256": "6ee1f38ceb636af11f00c23ff7fe11e0cf9e99c6477c0b64867368d07dba59f2",
+  "model_fits": 540,
+  "methods": [
+    "source_ensemble",
+    "source_eegnet",
+    "intercept",
+    "csp_lda",
+    "fbcsp_lda",
+    "spectral_logistic",
+    "tangent_logistic",
+    "tangent_rbf_svm",
+    "anchored_tangent",
+    "anchored_dual",
+    "donor_selected_fusion"
+  ],
+  "budgets": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    144
+  ],
+  "subjects": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009
+  ],
+  "seconds": 22.688355207443237,
+  "test_labels_used_for_fitting_or_selection": false
+}

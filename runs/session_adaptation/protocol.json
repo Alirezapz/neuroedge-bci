@@ -1,0 +1,85 @@
+{
+  "plan": {
+    "name": "session_adaptation",
+    "output_dir": "runs/session_adaptation",
+    "parent_output": "runs/context_fusion",
+    "parent_plan": "configs/context_fusion.yaml",
+    "study_status": "exploratory continuation on a previously inspected dataset",
+    "calibration_session": 1,
+    "test_session": 2,
+    "subjects": [
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009
+    ],
+    "support_budgets": [
+      4,
+      8,
+      16,
+      32,
+      64,
+      144
+    ],
+    "primary_budget": 16,
+    "primary_method": "anchored_dual",
+    "C_grid": [
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "fusion_weights": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "covariance_shrinkage": 0.1,
+    "feature_variance_shrinkage": 0.5,
+    "source_pipeline": "selected_zero_calibration",
+    "source_reference": "eegnet_reference",
+    "source_model_requirement": "fixed PhysioNet-only source probabilities; no BNCI refitting",
+    "support_rule": "first chronological left/right trials in session T; same identities for all methods at a budget",
+    "donor_selection_rule": "exclude the outer person's entire T and E; choose each method's C by mean balanced accuracy then log loss then smaller C on the other eight people's session-T later runs",
+    "donor_validation_rule": "for each budget use its first n T trials as pseudo-support and only T runs strictly after the last support run as validation; at budget144 use n96 for parameter selection because no later T run remains",
+    "single_class_support_rule": "retain source for anchored methods; target-only methods use the support-class prior; do not look ahead or discard a person",
+    "fusion_rule": "donor-selected convex average of intercept-adapted source and equal mean of FBCSP, tangent RBF SVM and anchored dual; the weight is selected without the outer person's data",
+    "evaluation_rule": "all 144 session-E left/right trials for every person and method; E labels are used for reporting only, never method, budget, C or fusion selection",
+    "bootstrap_iterations": 10000,
+    "bootstrap_seed": 43,
+    "seed": 7
+  },
+  "methods": [
+    "source_ensemble",
+    "source_eegnet",
+    "intercept",
+    "csp_lda",
+    "fbcsp_lda",
+    "spectral_logistic",
+    "tangent_logistic",
+    "tangent_rbf_svm",
+    "anchored_tangent",
+    "anchored_dual",
+    "donor_selected_fusion"
+  ],
+  "sources": {
+    "session_models.py": "9d7094b0a3ce6cff61baa988007caaa8db9fe3b47c4c6727455f20f085d857db",
+    "session_study.py": "d56fc2536062aacde59a5ddf29536ee926734b19b02c8a7a315c869df179c173",
+    "personal_kernels.py": "7ce900b46a333079d1c653747d32d6072a6d8e1164396fa182adbe05a0d94f1d",
+    "personalization.py": "2bfa8b15f051ba4714ec71160fa9b98c5958d3a2afcf06a36f5360c7af51313f",
+    "context_data.py": "d4c6a2387fb2f5a2578ac8ae23ac30a67c1925088de018e6d382a9c2434ee153"
+  },
+  "parent_predictions_sha256": "fb4e3260491109ca540d3fce0947a9403225a973bafba85f9cc6b5cf3d3bbcf1",
+  "parent_manifest_sha256": "b9b19c9e1647181b9683cb05ce2f60dfa81c5c0f8029145103e8542770cdbbf7",
+  "sha256": "55c8d1c72276911c83aea2a2ef2db6f36e375390feddfaea3c63ad1e58d63dc6",
+  "registered_utc": "2026-11-01T07:34:20.517022+00:00",
+  "previous_external_results_already_inspected": true,
+  "new_untouched_dataset_confirmation": false
+}

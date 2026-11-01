@@ -1,0 +1,7 @@
+protocol,selected,reference,mean_difference,ci_low,ci_high,subjects,same_context_requirement
+external_transfer,selected_zero_calibration,eegnet_reference,0.06751543209876538,0.008101851851851824,0.1122685185185185,9,True
+external_transfer,selected_pre_cue,selected_zero_calibration,-0.018518518518518476,-0.04320987654320983,0.007716049382716034,9,False
+external_loso,selected_zero_calibration,eegnet_reference,0.05439814814814817,0.006172839506172843,0.09375000000000004,9,True
+external_loso,selected_pre_cue,selected_zero_calibration,-0.04089506172839508,-0.06134259259259262,-0.01929012345679014,9,False
+personal_16,selected_zero_calibration,eegnet_reference,0.060185185185185196,0.021604938271604972,0.09722222222222221,9,True
+personal_16,selected_pre_cue,selected_zero_calibration,-0.009259259259259264,-0.033179012345679056,0.015432098765432093,9,False

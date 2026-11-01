@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Please cite this software and the original EEG datasets when using this research."
+type: software
+title: "NeuroEdge BCI: Reproducible Offline Motor-Imagery EEG Research"
+version: 0.5.0
+date-released: 2026-11-01
+authors:
+  - family-names: Pazouki
+    given-names: Alireza
+license: MIT
+repository-code: "https://github.com/Alirezapz/neuroedge-bci"
+abstract: "Offline EEG research with participant isolation, session-disjoint calibration, exact model artifacts, actual predictions and independent verification. Software licensing is separate from dataset terms."

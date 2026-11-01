@@ -1,0 +1,2 @@
+model,arm,subjects,balanced_accuracy,accuracy,log_loss,ci_low,ci_high
+selected_fusion,pre_cue,1,0.8576388888888888,0.8576388888888888,0.41443556913854557,0.8576388888888888,0.8576388888888888

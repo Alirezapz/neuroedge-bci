@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "supplement_verify": {
+    "verified_files": 3331,
+    "restored_files": 0,
+    "unchanged_files": 0,
+    "verify_only": true
+  },
+  "supplement_restore": {
+    "verified_files": 3331,
+    "restored_files": 3331,
+    "unchanged_files": 0,
+    "verify_only": false
+  },
+  "byte_equal_to_original_bundle": 3331,
+  "software_fixture_tests": 5,
+  "original_model_archives": "2,288 files verified byte-equal by the preceding publication preparation; content-addressed parts reused without modification."
+}

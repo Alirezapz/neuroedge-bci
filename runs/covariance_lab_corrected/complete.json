@@ -1,0 +1,9 @@
+{
+  "protocol_sha256": "0bec234211270b4c23312e73b7e9f8f669c54c67896867d7033391816c235020",
+  "selection_sha256": "be21b35634d075bbf2b457705d9aafd9e2199186aba4199b5243b3af9b80d488",
+  "prediction_sha256": "e7e4bd7e8bbf306710ebf87190660fed467af47e49bf0ae5fc43cae75a4d1ff6",
+  "fit_receipts_sha256": "b08cab445d140cefdc9bfeea24d8046952eb2ca287a118f228b0fc571f9617f5",
+  "nested_meta_sha256": "05da330c78f3c7c346d9641c4d990ce4c532f48f23be9627543bd046e6d8c7fa",
+  "saved_models": 972,
+  "test_labels_used_for_selection": false
+}

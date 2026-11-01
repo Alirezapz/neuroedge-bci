@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checkpoint_replays": 972,
+  "independent_support_meta_refits": 972,
+  "nested_settings_checked": 108,
+  "donor_candidate_metrics_checked": 7668,
+  "prediction_rows": 217728,
+  "subjects": 9,
+  "strict_and_batch_conditions_separate": true,
+  "test_labels_used_for_fit_or_selection": false,
+  "untouched_confirmation": false,
+  "verifier_source_sha256": "35ff11d18bcb949496df35978ad5e919a152bf7616203da1771d962ed6634fce"
+}

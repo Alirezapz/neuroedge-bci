@@ -1,0 +1,599 @@
+{
+  "plan": {
+    "name": "covariance_lab_corrected",
+    "output_dir": "runs/covariance_lab_corrected",
+    "cache_dir": "data/covariance_lab",
+    "parent_plan": "configs/context_fusion.yaml",
+    "parent_output": "runs/context_fusion",
+    "previous_output": "runs/session_adaptation",
+    "study_status": "exploratory continuation on previously inspected BNCI2014_001",
+    "subjects": [
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009
+    ],
+    "support_budgets": [
+      16,
+      64,
+      144
+    ],
+    "sensor_counts": [
+      16,
+      22
+    ],
+    "conditions": [
+      "strict",
+      "batch_unlabeled"
+    ],
+    "primary_budget": 144,
+    "primary_sensors": 16,
+    "primary_condition": "strict",
+    "primary_method": "donor_stack",
+    "selection_rule": "exclude the outer person completely; select each family on other people session-T later-run validation, BA then log loss then stable specification name",
+    "donor_support_rule": "first n chronological T left/right trials; for budget144 use96 and validate strictly later complete T runs",
+    "stack_rule": "nested donor predictions; each meta-training person's family settings exclude that person and the outer person; logistic C chosen by leave-one-donor-out meta CV",
+    "stack_C_grid": [
+      0.01,
+      0.1,
+      1.0
+    ],
+    "batch_alignment_rule": "only the unlabelled prediction batch mean covariance; congruence transport to support mean; no test labels; report separately from strict",
+    "evaluation_rule": "all144 left/right session-E trials per person, no artifact exclusion, no E-driven method or parameter selection",
+    "bootstrap_iterations": 10000,
+    "bootstrap_seed": 43,
+    "seed": 7
+  },
+  "candidates": [
+    {
+      "family": "fbcsp_lda",
+      "shrink": 0.01,
+      "components": 4,
+      "name": "fbcsp_lda_fa4efad0bd"
+    },
+    {
+      "family": "fbcsp_lda",
+      "shrink": 0.01,
+      "components": 8,
+      "name": "fbcsp_lda_7cdc9ae9c2"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.01,
+      "components": 4,
+      "C": 0.1,
+      "gamma": 0.25,
+      "name": "fbcsp_svm_4d13253e29"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.01,
+      "C": 0.1,
+      "gamma": 0.25,
+      "name": "tangent_svm_241f30991c"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.01,
+      "components": 4,
+      "C": 0.1,
+      "gamma": 1.0,
+      "name": "fbcsp_svm_a744d1fa40"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.01,
+      "C": 0.1,
+      "gamma": 1.0,
+      "name": "tangent_svm_2465d5eb1a"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.01,
+      "components": 4,
+      "C": 0.1,
+      "gamma": 4.0,
+      "name": "fbcsp_svm_92031b7e18"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.01,
+      "C": 0.1,
+      "gamma": 4.0,
+      "name": "tangent_svm_6ae93242fa"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.01,
+      "components": 4,
+      "C": 1.0,
+      "gamma": 0.25,
+      "name": "fbcsp_svm_37133e5cb5"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.01,
+      "C": 1.0,
+      "gamma": 0.25,
+      "name": "tangent_svm_ca75145685"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.01,
+      "components": 4,
+      "C": 1.0,
+      "gamma": 1.0,
+      "name": "fbcsp_svm_1f8058bd61"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.01,
+      "C": 1.0,
+      "gamma": 1.0,
+      "name": "tangent_svm_fb6eb09bcb"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.01,
+      "components": 4,
+      "C": 1.0,
+      "gamma": 4.0,
+      "name": "fbcsp_svm_3a32aa17ed"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.01,
+      "C": 1.0,
+      "gamma": 4.0,
+      "name": "tangent_svm_7e53c52c9a"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.01,
+      "components": 4,
+      "C": 10.0,
+      "gamma": 0.25,
+      "name": "fbcsp_svm_5ace72fca1"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.01,
+      "C": 10.0,
+      "gamma": 0.25,
+      "name": "tangent_svm_2c1285fe97"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.01,
+      "components": 4,
+      "C": 10.0,
+      "gamma": 1.0,
+      "name": "fbcsp_svm_53443de0dd"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.01,
+      "C": 10.0,
+      "gamma": 1.0,
+      "name": "tangent_svm_103a6e617d"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.01,
+      "components": 4,
+      "C": 10.0,
+      "gamma": 4.0,
+      "name": "fbcsp_svm_ede103dadf"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.01,
+      "C": 10.0,
+      "gamma": 4.0,
+      "name": "tangent_svm_4e6089f92e"
+    },
+    {
+      "family": "tangent_logistic",
+      "shrink": 0.01,
+      "C": 0.01,
+      "name": "tangent_logistic_a1e4e72a7c"
+    },
+    {
+      "family": "tangent_logistic",
+      "shrink": 0.01,
+      "C": 0.1,
+      "name": "tangent_logistic_8215f1b471"
+    },
+    {
+      "family": "tangent_logistic",
+      "shrink": 0.01,
+      "C": 1.0,
+      "name": "tangent_logistic_6e5641ffbe"
+    },
+    {
+      "family": "fbcsp_lda",
+      "shrink": 0.1,
+      "components": 4,
+      "name": "fbcsp_lda_55a53dbbca"
+    },
+    {
+      "family": "fbcsp_lda",
+      "shrink": 0.1,
+      "components": 8,
+      "name": "fbcsp_lda_9e82a8d3f9"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.1,
+      "components": 4,
+      "C": 0.1,
+      "gamma": 0.25,
+      "name": "fbcsp_svm_16cae5eb7d"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.1,
+      "C": 0.1,
+      "gamma": 0.25,
+      "name": "tangent_svm_1dcd1294df"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.1,
+      "components": 4,
+      "C": 0.1,
+      "gamma": 1.0,
+      "name": "fbcsp_svm_184578485b"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.1,
+      "C": 0.1,
+      "gamma": 1.0,
+      "name": "tangent_svm_ed080b0ef4"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.1,
+      "components": 4,
+      "C": 0.1,
+      "gamma": 4.0,
+      "name": "fbcsp_svm_2182c4b9b5"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.1,
+      "C": 0.1,
+      "gamma": 4.0,
+      "name": "tangent_svm_9caa2e5078"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.1,
+      "components": 4,
+      "C": 1.0,
+      "gamma": 0.25,
+      "name": "fbcsp_svm_b457f643a4"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.1,
+      "C": 1.0,
+      "gamma": 0.25,
+      "name": "tangent_svm_77e869ffbb"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.1,
+      "components": 4,
+      "C": 1.0,
+      "gamma": 1.0,
+      "name": "fbcsp_svm_fbe25bb730"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.1,
+      "C": 1.0,
+      "gamma": 1.0,
+      "name": "tangent_svm_d895b79d1d"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.1,
+      "components": 4,
+      "C": 1.0,
+      "gamma": 4.0,
+      "name": "fbcsp_svm_c59cd337e8"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.1,
+      "C": 1.0,
+      "gamma": 4.0,
+      "name": "tangent_svm_5336e29e92"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.1,
+      "components": 4,
+      "C": 10.0,
+      "gamma": 0.25,
+      "name": "fbcsp_svm_e1fc79b329"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.1,
+      "C": 10.0,
+      "gamma": 0.25,
+      "name": "tangent_svm_8e71d2b1f0"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.1,
+      "components": 4,
+      "C": 10.0,
+      "gamma": 1.0,
+      "name": "fbcsp_svm_84b2919892"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.1,
+      "C": 10.0,
+      "gamma": 1.0,
+      "name": "tangent_svm_e33400d58c"
+    },
+    {
+      "family": "fbcsp_svm",
+      "shrink": 0.1,
+      "components": 4,
+      "C": 10.0,
+      "gamma": 4.0,
+      "name": "fbcsp_svm_89b41e3418"
+    },
+    {
+      "family": "tangent_svm",
+      "shrink": 0.1,
+      "C": 10.0,
+      "gamma": 4.0,
+      "name": "tangent_svm_1a0567fb3e"
+    },
+    {
+      "family": "tangent_logistic",
+      "shrink": 0.1,
+      "C": 0.01,
+      "name": "tangent_logistic_1210cc64a8"
+    },
+    {
+      "family": "tangent_logistic",
+      "shrink": 0.1,
+      "C": 0.1,
+      "name": "tangent_logistic_ad99b4f985"
+    },
+    {
+      "family": "tangent_logistic",
+      "shrink": 0.1,
+      "C": 1.0,
+      "name": "tangent_logistic_c5f4159bfc"
+    },
+    {
+      "family": "selected_fbcsp",
+      "shrink": 0.05,
+      "components": 8,
+      "C": 0.1,
+      "gamma": 1.0,
+      "keep": 12,
+      "name": "selected_fbcsp_1df822eb58"
+    },
+    {
+      "family": "selected_fbcsp",
+      "shrink": 0.05,
+      "components": 8,
+      "C": 0.1,
+      "gamma": 1.0,
+      "keep": 24,
+      "name": "selected_fbcsp_89d1cb5fc7"
+    },
+    {
+      "family": "selected_fbcsp",
+      "shrink": 0.05,
+      "components": 8,
+      "C": 0.1,
+      "gamma": 1.0,
+      "keep": 48,
+      "name": "selected_fbcsp_88eadef08b"
+    },
+    {
+      "family": "joint_svm",
+      "shrink": 0.05,
+      "components": 4,
+      "C": 0.1,
+      "gamma": 0.25,
+      "name": "joint_svm_e0e40c119c"
+    },
+    {
+      "family": "joint_svm",
+      "shrink": 0.05,
+      "components": 4,
+      "C": 0.1,
+      "gamma": 1.0,
+      "name": "joint_svm_68935bc37b"
+    },
+    {
+      "family": "joint_svm",
+      "shrink": 0.05,
+      "components": 4,
+      "C": 0.1,
+      "gamma": 4.0,
+      "name": "joint_svm_242de8374c"
+    },
+    {
+      "family": "power_means",
+      "shrink": 0.05,
+      "C": 0.1,
+      "name": "power_means_f72c778f49"
+    },
+    {
+      "family": "selected_fbcsp",
+      "shrink": 0.05,
+      "components": 8,
+      "C": 1.0,
+      "gamma": 1.0,
+      "keep": 12,
+      "name": "selected_fbcsp_bceeb6be84"
+    },
+    {
+      "family": "selected_fbcsp",
+      "shrink": 0.05,
+      "components": 8,
+      "C": 1.0,
+      "gamma": 1.0,
+      "keep": 24,
+      "name": "selected_fbcsp_3ecaa93b35"
+    },
+    {
+      "family": "selected_fbcsp",
+      "shrink": 0.05,
+      "components": 8,
+      "C": 1.0,
+      "gamma": 1.0,
+      "keep": 48,
+      "name": "selected_fbcsp_aa5f117a20"
+    },
+    {
+      "family": "joint_svm",
+      "shrink": 0.05,
+      "components": 4,
+      "C": 1.0,
+      "gamma": 0.25,
+      "name": "joint_svm_49054a6cab"
+    },
+    {
+      "family": "joint_svm",
+      "shrink": 0.05,
+      "components": 4,
+      "C": 1.0,
+      "gamma": 1.0,
+      "name": "joint_svm_f7d56ba766"
+    },
+    {
+      "family": "joint_svm",
+      "shrink": 0.05,
+      "components": 4,
+      "C": 1.0,
+      "gamma": 4.0,
+      "name": "joint_svm_3b4e73ffce"
+    },
+    {
+      "family": "power_means",
+      "shrink": 0.05,
+      "C": 1.0,
+      "name": "power_means_ef82dfb5e8"
+    },
+    {
+      "family": "selected_fbcsp",
+      "shrink": 0.05,
+      "components": 8,
+      "C": 10.0,
+      "gamma": 1.0,
+      "keep": 12,
+      "name": "selected_fbcsp_bd689021b7"
+    },
+    {
+      "family": "selected_fbcsp",
+      "shrink": 0.05,
+      "components": 8,
+      "C": 10.0,
+      "gamma": 1.0,
+      "keep": 24,
+      "name": "selected_fbcsp_67fbe01a59"
+    },
+    {
+      "family": "selected_fbcsp",
+      "shrink": 0.05,
+      "components": 8,
+      "C": 10.0,
+      "gamma": 1.0,
+      "keep": 48,
+      "name": "selected_fbcsp_b7279c6948"
+    },
+    {
+      "family": "joint_svm",
+      "shrink": 0.05,
+      "components": 4,
+      "C": 10.0,
+      "gamma": 0.25,
+      "name": "joint_svm_af68729f52"
+    },
+    {
+      "family": "joint_svm",
+      "shrink": 0.05,
+      "components": 4,
+      "C": 10.0,
+      "gamma": 1.0,
+      "name": "joint_svm_59a667b4d0"
+    },
+    {
+      "family": "joint_svm",
+      "shrink": 0.05,
+      "components": 4,
+      "C": 10.0,
+      "gamma": 4.0,
+      "name": "joint_svm_32733dd812"
+    },
+    {
+      "family": "power_means",
+      "shrink": 0.05,
+      "C": 10.0,
+      "name": "power_means_f9281bc795"
+    },
+    {
+      "family": "anchored_multiview",
+      "shrink": 0.05,
+      "components": 4,
+      "C": 0.01,
+      "name": "anchored_multiview_c95f12a7b7"
+    },
+    {
+      "family": "anchored_multiview",
+      "shrink": 0.05,
+      "components": 4,
+      "C": 0.1,
+      "name": "anchored_multiview_40db165569"
+    },
+    {
+      "family": "anchored_multiview",
+      "shrink": 0.05,
+      "components": 4,
+      "C": 1.0,
+      "name": "anchored_multiview_bf344002c2"
+    },
+    {
+      "family": "anchored_multiview",
+      "shrink": 0.05,
+      "components": 4,
+      "C": 10.0,
+      "name": "anchored_multiview_6762bfea95"
+    }
+  ],
+  "sources": {
+    "covariance_models.py": "ba138f67ac12edf8a3de0e59e341624ce2ad6fc70ab44c77a4e79e8a72eee248",
+    "covariance_data.py": "65565fe415babd8e4778c263d145a3164b48f6b4e3487fd8b1329fb9417835c2",
+    "covariance_study.py": "1963712afdcf86a163b4e1de659861217dec107fa59eb41bc0f9637adcbf519b",
+    "personal_kernels.py": "7ce900b46a333079d1c653747d32d6072a6d8e1164396fa182adbe05a0d94f1d",
+    "personalization.py": "2bfa8b15f051ba4714ec71160fa9b98c5958d3a2afcf06a36f5360c7af51313f",
+    "session_models.py": "9d7094b0a3ce6cff61baa988007caaa8db9fe3b47c4c6727455f20f085d857db",
+    "session_study.py": "d56fc2536062aacde59a5ddf29536ee926734b19b02c8a7a315c869df179c173",
+    "context_data.py": "d4c6a2387fb2f5a2578ac8ae23ac30a67c1925088de018e6d382a9c2434ee153"
+  },
+  "parent_prediction_sha256": "fb4e3260491109ca540d3fce0947a9403225a973bafba85f9cc6b5cf3d3bbcf1",
+  "previous_prediction_sha256": "acc8943520901ba8f7f251bfff7a173a5b388a46fdd3c24d12007f473b310cec",
+  "sha256": "0bec234211270b4c23312e73b7e9f8f669c54c67896867d7033391816c235020",
+  "registered_utc": "2026-11-01T08:35:35.444685+00:00",
+  "previous_external_results_inspected": true,
+  "untouched_confirmation": false
+}

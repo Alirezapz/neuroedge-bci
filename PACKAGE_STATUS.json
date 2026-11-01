@@ -1,0 +1,199 @@
+{
+  "created_utc": "2026-11-01T08:52:11.066693+00:00",
+  "runs": {
+    "main": {
+      "completed": 75,
+      "planned": 75,
+      "status": "complete"
+    },
+    "smoke": {
+      "completed": 18,
+      "planned": 18,
+      "status": "complete"
+    },
+    "accuracy_expanded": {
+      "status": "complete",
+      "development_subjects": 70,
+      "confirmation_subjects": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ]
+    },
+    "accuracy_expanded_local": {
+      "status": "complete",
+      "development_subjects": 70,
+      "confirmation_subjects": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ]
+    },
+    "accuracy_v2": {
+      "status": "complete",
+      "development_subjects": 20,
+      "confirmation_subjects": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ]
+    },
+    "context_fusion": {
+      "status": "verified",
+      "base_candidates": 63,
+      "source_subjects": 80,
+      "reused_selection_subjects": 24,
+      "external_dataset": "BNCI2014_001",
+      "external_subjects": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "screening": {
+        "finished": 63,
+        "total": 63,
+        "last": "neural_60ca589b74d4"
+      },
+      "final_constituents_required": 11,
+      "final_constituents_completed": 11,
+      "finished_final_neural_seeds": 13
+    },
+    "covariance_lab": {
+      "status": "invalidated_diagnostic",
+      "scientific_results": false,
+      "note": "See INVALIDATED.json and implementation_snapshot. Incomplete model output is omitted."
+    },
+    "covariance_lab_corrected": {
+      "status": "verified",
+      "parent_output": "runs/context_fusion",
+      "primary_budget": 144,
+      "support_budgets": [
+        16,
+        64,
+        144
+      ]
+    },
+    "frontier": {
+      "status": "verified",
+      "base_candidates": 224,
+      "discovery_subjects": 60,
+      "validation_subjects": 20,
+      "confirmation_requested": [
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109
+      ],
+      "screening": {
+        "finished": 224,
+        "total": 224,
+        "failed": 0,
+        "last": "neural_rest_274806d85130",
+        "protocol_sha256": "7506ad491e4e38c4f05f9f458d037a0bf4da619ffd09cdafc9525fa8ebc381d5"
+      }
+    },
+    "gated_context": {
+      "status": "verified",
+      "base_candidates": 2,
+      "source_variants_completed": 2
+    },
+    "personalization": {
+      "status": "verified",
+      "parent_output": "runs/context_fusion",
+      "primary_budget": 16,
+      "support_budgets": [
+        4,
+        8,
+        16
+      ]
+    },
+    "personalization_gated": {
+      "status": "verified",
+      "parent_output": "runs/gated_context",
+      "primary_budget": 16,
+      "support_budgets": [
+        4,
+        8,
+        16
+      ]
+    },
+    "research_summary": {
+      "status": "verified",
+      "external_used_for_selection": false
+    },
+    "session_adaptation": {
+      "status": "verified",
+      "parent_output": "runs/context_fusion",
+      "primary_budget": 16,
+      "support_budgets": [
+        4,
+        8,
+        16,
+        32,
+        64,
+        144
+      ]
+    },
+    "residual_personal": {
+      "status": "verified",
+      "source_calibration_choices": 12,
+      "primary_kernel": "hybrid",
+      "primary_budget": 16
+    }
+  },
+  "raw_edf_included": false,
+  "processed_cache_included": false,
+  "note": "Raw data can be reacquired; see README. Incomplete results are excluded; finished neural seeds with matching receipts may be retained for exact resume."
+}

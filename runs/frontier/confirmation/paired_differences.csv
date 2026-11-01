@@ -1,0 +1,4 @@
+selected,baseline,subjects,mean_difference,ci_low,ci_high,same_operating_condition
+selected_zero_calibration,csp16_baseline,24,0.06263087003576133,0.027387704196467803,0.10001803751803746,True
+selected_zero_calibration,eegnet16_baseline,24,0.036837709392057216,-0.012526321052136262,0.0813323942060355,True
+selected_rest_calibrated,selected_zero_calibration,24,0.04984138747725706,0.023636991028295407,0.07863573624443192,False

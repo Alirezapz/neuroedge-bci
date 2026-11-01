@@ -8,6 +8,7 @@ version = "0.5.0"
 description = "Reproducible EEG research with participant isolation and session-disjoint source-anchored calibration"
 requires-python = ">=3.11"
 license = "MIT"
+authors = [{name = "Alireza Pazouki"}]
 dependencies = [
   "numpy>=2.1,<3", "scipy>=1.14,<2", "pandas>=2.2,<3",
   "scikit-learn>=1.6,<2", "mne>=1.8,<2", "torch>=2.5,<3",

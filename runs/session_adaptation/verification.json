@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checkpoint_replays": 540,
+  "independent_support_refits": 540,
+  "donor_choices_reconstructed": 54,
+  "final_prediction_rows": 85536,
+  "subject_metric_rows": 594,
+  "paired_comparisons": 66,
+  "all_test_trials_session_E": true,
+  "no_test_labels_or_batch_statistics_in_fit": true,
+  "new_untouched_dataset_confirmation": false,
+  "verifier_source_sha256": "bcd201c7b10dd58b7d1e57dd9ef1126ca451d9ce28e899dd4aa8979b92eaad2e"
+}

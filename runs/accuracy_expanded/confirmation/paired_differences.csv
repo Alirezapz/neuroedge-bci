@@ -1,0 +1,2 @@
+selected,baseline,subjects,mean_difference,ci_low,ci_high
+csp_lda,eegnet_old_settings_25epochs,10,-0.01147774327122153,-0.07205910031996987,0.052348220167513664

@@ -1,6 +1,8 @@
 # Data, references, and attribution
 
-NeuroEdge source code is independently implemented and released under MIT. The dataset and its derivatives do not become MIT-licensed by inclusion in this project.
+NeuroEdge source code is independently implemented and released under MIT.
+See [DATA_LICENSES.md](DATA_LICENSES.md) for the software/artifact license scope,
+full copyright notice and dataset-specific terms. The dataset and its derivatives do not become MIT-licensed by inclusion in this project.
 
 ## EEG dataset
 
@@ -10,7 +12,7 @@ NeuroEdge source code is independently implemented and released under MIT. The d
 - Dataset page: [PhysioNet EEGMMIDB](https://physionet.org/content/eegmmidb/1.0.0/).
 - Dataset license: [Open Data Commons Attribution License v1.0](https://opendatacommons.org/licenses/by/1-0/).
 
-Raw EDF files are downloaded from the official public physionet-open S3 bucket or the canonical PhysioNet host and are omitted from the source deliverable. The small demo embeds filtered/resampled/selected/average-referenced derivative epochs with dataset attribution. Its signals were modified by the preprocessing pipeline and are not original raw EDF recordings. Dataset rights and attribution obligations remain applicable to these derivatives.
+Raw EDF files are downloaded from the official public physionet-open S3 bucket or the canonical PhysioNet host and are omitted from the source deliverable. Historical owner-delivered demo pages embedded filtered/resampled/selected/average-referenced derivative epochs with dataset attribution. Recorded-signal replay pages are excluded from this GitHub publication. Dataset rights and attribution obligations remain applicable to any locally reconstructed derivatives.
 
 ## Architecture and software references
 

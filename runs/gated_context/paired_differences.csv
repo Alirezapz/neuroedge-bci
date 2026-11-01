@@ -1,0 +1,6 @@
+protocol,proposed,reference,subjects,mean_difference,ci_low,ci_high,same_input_requirement
+external_transfer,quality_gate,fixed_gate,9,-0.041666666666666644,-0.057870370370370336,-0.023919753086419755,True
+external_transfer,quality_gate,selected_pre_cue,9,-0.02700617283950619,-0.04552469135802468,-0.00810185185185186,True
+external_transfer,fixed_gate,selected_pre_cue,9,0.014660493827160455,-0.003858024691358061,0.034722222222222175,True
+external_loso,selected_fusion,selected_pre_cue,9,0.028935185185185192,0.005787037037037053,0.051697530864197545,True
+external_loso,selected_fusion,selected_zero_calibration,9,-0.011959876543209883,-0.028935185185185192,0.010416666666666678,False
