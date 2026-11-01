@@ -1,0 +1,27 @@
+name: session_adaptation
+output_dir: runs/session_adaptation
+parent_output: runs/context_fusion
+parent_plan: configs/context_fusion.yaml
+study_status: exploratory continuation on a previously inspected dataset
+calibration_session: 1
+test_session: 2
+subjects: [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009]
+support_budgets: [4, 8, 16, 32, 64, 144]
+primary_budget: 16
+primary_method: anchored_dual
+C_grid: [0.01, 0.1, 1.0, 10.0]
+fusion_weights: [0.0, 0.25, 0.5, 0.75, 1.0]
+covariance_shrinkage: 0.1
+feature_variance_shrinkage: 0.5
+source_pipeline: selected_zero_calibration
+source_reference: eegnet_reference
+source_model_requirement: fixed PhysioNet-only source probabilities; no BNCI refitting
+support_rule: first chronological left/right trials in session T; same identities for all methods at a budget
+donor_selection_rule: exclude the outer person's entire T and E; choose each method's C by mean balanced accuracy then log loss then smaller C on the other eight people's session-T later runs
+donor_validation_rule: for each budget use its first n T trials as pseudo-support and only T runs strictly after the last support run as validation; at budget144 use n96 for parameter selection because no later T run remains
+single_class_support_rule: retain source for anchored methods; target-only methods use the support-class prior; do not look ahead or discard a person
+fusion_rule: donor-selected convex average of intercept-adapted source and equal mean of FBCSP, tangent RBF SVM and anchored dual; the weight is selected without the outer person's data
+evaluation_rule: all 144 session-E left/right trials for every person and method; E labels are used for reporting only, never method, budget, C or fusion selection
+bootstrap_iterations: 10000
+bootstrap_seed: 43
+seed: 7

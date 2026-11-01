@@ -1,0 +1,36 @@
+name: main
+scope: fixed 20-subject engineering benchmark; exploratory; no novelty claim
+dataset:
+  subjects: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+  runs: [4, 8, 12]
+  raw_dir: data/raw
+  cache_dir: data/processed
+  download_timeout: 30
+  download_workers: 4
+preprocessing:
+  sfreq: 128
+  low_hz: 8
+  high_hz: 30
+  tmin: 1.0
+  duration: 3.0
+evaluation:
+  folds: 5
+  split_seed: 20261029
+  validation_fraction: 0.25
+  seeds: [7, 17, 27]
+  channels: [64, 16, 8]
+training:
+  epochs: 25
+  patience: 8
+  batch_size: 64
+  learning_rate: 0.001
+  threads: 2
+  dropout: 0.5
+  kernel_length: 32
+deployment:
+  calibration_trials: 64
+  warmup: 30
+  iterations: 200
+  threads: 1
+output_dir: runs/main
+

@@ -1,0 +1,24 @@
+name: covariance_lab
+output_dir: runs/covariance_lab
+cache_dir: data/covariance_lab
+parent_plan: configs/context_fusion.yaml
+parent_output: runs/context_fusion
+previous_output: runs/session_adaptation
+study_status: exploratory continuation on previously inspected BNCI2014_001
+subjects: [1001,1002,1003,1004,1005,1006,1007,1008,1009]
+support_budgets: [16,64,144]
+sensor_counts: [16,22]
+conditions: [strict,batch_unlabeled]
+primary_budget: 144
+primary_sensors: 16
+primary_condition: strict
+primary_method: donor_stack
+selection_rule: exclude the outer person completely; select each family on other people session-T later-run validation, BA then log loss then stable specification name
+donor_support_rule: first n chronological T left/right trials; for budget144 use96 and validate strictly later complete T runs
+stack_rule: nested donor predictions; each meta-training person's family settings exclude that person and the outer person; logistic C chosen by leave-one-donor-out meta CV
+stack_C_grid: [0.01,0.1,1.0]
+batch_alignment_rule: only the unlabelled prediction batch mean covariance; congruence transport to support mean; no test labels; report separately from strict
+evaluation_rule: all144 left/right session-E trials per person, no artifact exclusion, no E-driven method or parameter selection
+bootstrap_iterations: 10000
+bootstrap_seed: 43
+seed: 7

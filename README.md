@@ -1,13 +1,60 @@
 # NeuroEdge
 
-> Publication status: overview only. The complete source, reports, predictions and model artifacts have been prepared and saved in the delivered project bundle. Full publication to this repository is awaiting explicit confirmation of this destination and the model-weight payload.
+Reproducible offline EEG motor-imagery research: source code and aggregate results.
+This GitHub edition excludes model checkpoints, individual-trial records, raw
+EEG, scientific image payloads and recorded-signal replays. The complete project
+bundle retains those exact artifacts for its owner. Binary/data publication
+remains blocked by automated approval review pending explicit payload approval.
 
-NeuroEdge is an offline left/right motor-imagery EEG research project with participant isolation, cross-dataset transfer and session-disjoint personal calibration.
+## Latest verified experiment
 
-The latest exploratory study compared 11 methods at six labeled-support budgets on the same nine BNCI2014_001 people and 1,296 second-session trials using 16 electrodes. Donor-selected fusion reached 85.11% balanced accuracy with 144 labeled first-session trials. Tangent RBF SVM reached 83.64% under the same support condition; their paired difference interval includes zero.
+71 configurations were evaluated in 7,668 donor fits, followed by 972 selected
+model/stack artifacts. The same 1,296 session-E left/right trials from nine
+BNCI2014_001 people were scored. All parameter selection used session T only.
+The conditions below all use 144 personal first-session left/right labels.
 
-The primary anchored-dual comparison at 16 labels scored 74.15% versus 73.07% for intercept-only calibration; its interval also includes zero. Higher-budget results require more personal calibration and do not replace zero-calibration accuracy. The dataset had been inspected previously, so the new study is exploratory.
+| Pipeline | EEG sensors | E-batch statistics | Balanced accuracy |
+|---|---:|---|---:|
+| Previous fusion | 16 | None | 85.11% |
+| New donor stack, primary | 16 | None | 84.95% |
+| New donor stack | 22 | None | 86.50% |
+| New equal-mean ensemble | 22 | Unlabeled full E batch | 87.04% |
 
-All 82 local software tests passed. All 540 saved fit/evaluation artifacts were replayed and refitted; 54 donor-only parameter settings and all 330 method-pair/budget comparison means were checked. Eight English report pages passed desktop and mobile layout checks.
+The primary comparison did not improve: -0.15pp [-1.31,+1.16]. The 22-sensor
+strict stack gains 1.39pp [0.08,2.85] versus the old 16-sensor pipeline; this
+also changes the electrode requirement. The 87.04% condition uses future
+unlabeled E trials for alignment. All results require personal calibration.
+These previously inspected data make this an exploratory study. Intervals
+are descriptive and unadjusted for secondary comparisons. Gains remain limited.
 
-The complete delivered bundle preserves prior scientific code, model weights, prediction tables, negative results and attribution. The full upload has not been committed to this repository yet.
+- [Latest full aggregate report](runs/covariance_lab_corrected/REPORT.md).
+- [All 168 method/input/budget conditions](runs/covariance_lab_corrected/summary.csv).
+- [All 1,092 aggregate comparisons](runs/covariance_lab_corrected/all_pairwise_comparisons.csv).
+- [Exact methods and limitations](docs/COVARIANCE_LAB_METHODS.md).
+- [Earlier calibration report](runs/session_adaptation/REPORT.md).
+- [Attribution and licenses](THIRD_PARTY.md).
+
+94 local software tests passed. Independent verification replayed/refitted
+all 972 final artifacts, reconstructed 108 nested settings, and checked all
+7,668 donor candidate metrics and 217,728 actual prediction rows. Nine people
+remain the sampling unit. An initial diagnostic implementation was invalidated
+after a matrix-exponential prototype error; all final results were recomputed
+under the corrected protocol. Negative findings are preserved.
+
+## Install the source
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+python -m pip install -r requirements-tested.txt
+python -m pip install --no-deps -e .
+python -m pytest -q
+```
+
+Archived checkpoint replay requires the complete artifact bundle. Fresh source
+training uses new named configurations and the attributed public datasets;
+see the method guides. Never remove hash guards to force incompatible resumes.
+All project text is English. Source code is MIT; dataset terms are separate.
+The code was developed with Codex assistance. This offline study establishes no
+clinical, real-time, MCU or universal-SOTA claim. See PUBLISHING.md for scope.

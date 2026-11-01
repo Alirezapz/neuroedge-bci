@@ -1,0 +1,31 @@
+name: residual_personal
+parent_plan: configs/context_fusion.yaml
+parent_output: runs/context_fusion
+output_dir: runs/residual_personal
+base_pipeline: selected_zero_calibration
+scope: source-prior nonlinear personal calibration with complementary task-only spectral and covariance geometry; all variants reported
+source_calibration_runs: [4, 8]
+source_test_run: 12
+source_selection_budget: 16
+calibration_session: 1
+test_session: 2
+support_budgets: [4, 8, 16]
+primary_budget: 16
+kernels: [spectral, geometry, hybrid]
+primary_kernel: hybrid
+C_grid: [0.01, 0.1, 1.0, 10.0]
+kernel_rule: Gaussian exp(-mean squared source-standardized feature difference); hybrid is the equal mean of the spectral and geometry kernels
+spectral_features: log diagonal task covariance in full and two half windows across all eight bands and sixteen sensors; remove global band/sensor mean separately in each window
+geometry_features: full-window covariance trace-normalized to sixteen, shrunk 0.1 toward identity, matrix logarithm, symmetric upper vector with sqrt(2) off-diagonal weights
+source_standardization: fit each feature mean/std on source people 1-80 for development, refit on all 104 PhysioNet people after source-only C selection; never target-batch statistics
+source_selection_rule: per kernel, highest participant-mean balanced accuracy on run12 of the previously inspected 24 source-selection people, then lowest log loss, then smaller C; support is first16 chronological trials in runs4 and8
+objective: balanced logistic loss at source ensemble logit plus K_support times alpha plus intercept; penalty alpha_T times (K_support plus 1e-6 identity) times alpha divided by (2 n C), plus intercept_squared divided by (2 n 4_squared)
+adaptation:
+  probability_clip: 0.000001
+  intercept_prior_standard_deviation: 4.0
+  kernel_jitter: 0.000001
+  max_iterations: 1000
+  single_class_support_rule: retain the unadapted base model; never look ahead or exclude the person
+external_rule: report all three source-selected kernels and every budget on the entire sessionE, using first chronological sessionT support; primary hybrid and budget16 fixed before external data
+bootstrap_iterations: 10000
+bootstrap_seed: 43

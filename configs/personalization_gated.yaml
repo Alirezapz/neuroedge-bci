@@ -1,0 +1,19 @@
+name: personalization_gated
+parent_plan: configs/context_fusion.yaml
+parent_output: runs/gated_context
+output_dir: runs/personalization_gated
+scope: predeclared session-disjoint labeled calibration of both registered gate variants; different requirement from zero-calibration decoding
+calibration_session: 1
+test_session: 2
+support_budgets: [4, 8, 16]
+primary_budget: 16
+support_rule: first chronological left/right trials in the first session; identical support IDs for every compared pipeline
+adaptation:
+  method: class-balanced intercept-only logistic adaptation with a zero-mean Gaussian prior
+  prior_standard_deviation: 4.0
+  bounds: [-16.0, 16.0]
+  probability_clip: 0.000001
+  single_class_support_rule: retain the unadapted model; never look ahead for another label or drop the person
+selection_rule: report both gate variants inherited from source-only development; no external choice of model, budget, prior or method
+bootstrap_iterations: 10000
+bootstrap_seed: 43

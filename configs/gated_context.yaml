@@ -1,0 +1,13 @@
+name: gated_context
+parent_plan: configs/context_fusion.yaml
+output_dir: runs/gated_context
+scope: source-only follow-up to harmful simple context subtraction; register and freeze all source fits before external EEG acquisition
+variants: [fixed_gate, quality_gate]
+epochs: 35
+seeds: [7, 17, 27]
+gate_hidden_units: 32
+gate_initial_bias: -2.0
+selection_rule: source-only reused-validation balanced accuracy, then log loss; external transfer reports both variants; external LOSO uses only this frozen winner
+external_protocols: [source_to_external_transfer, external_leave_one_person_out]
+bootstrap_iterations: 10000
+bootstrap_seed: 43
